@@ -9,7 +9,7 @@ public class Client {
     int portaServer = 6789;
     Socket mySocket;
     ObjectInputStream inDalServer;
-    BufferedOutputStream writer ;
+    FileOutputStream writer ;
     String filePath = "img_ricevuta.jpg";
 
     public Socket connetti(){
@@ -18,7 +18,7 @@ public class Client {
           //creazione socket
           mySocket = new Socket(nomeServer, portaServer); //possibile utilizzare anche 'InetAddress.getLocalHost' al posto di 'nomeServer'
           
-          writer = new BufferedOutputStream(new FileOutputStream(filePath)) ;  // istanza per scrivere su un file binario
+          writer = new FileOutputStream(filePath) ;  // istanza per scrivere su un file binario
           inDalServer = new ObjectInputStream(mySocket.getInputStream());
         
 
